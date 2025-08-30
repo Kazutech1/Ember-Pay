@@ -8,6 +8,7 @@
     "scheme": "emberpay",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "backgroundColor": "#000",
     "ios": {
       "supportsTablet": true
     },
