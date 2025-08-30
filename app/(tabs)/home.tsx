@@ -1,6 +1,7 @@
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Send, ArrowDownToLine, QrCode, MoreHorizontal, ArrowUpRight, ArrowDownRight } from "lucide-react-native";
+import { router } from 'expo-router';
 
 const QuickActionIcon = ({ children, color = "#DC2626" }) => (
   <View className={`w-12 h-12 rounded-xl items-center justify-center`} style={{ backgroundColor: `${color}20` }}>
@@ -35,7 +36,24 @@ const TransactionItem = ({ type, amount, time, status }) => (
   </View>
 );
 
+
+
 export default function HomeScreen() {
+
+
+    const handleSend = () => {
+      router.push('/(trans)/send');    
+    };
+
+     const handleRecieve = () => {
+      router.push('/(trans)/recieve');    
+    };
+  
+    const handleScan = () => {
+      router.push('/(trans)/scanner');    
+    };
+  
+
   return (
     <View className="flex-1 bg-zinc-950">
       <StatusBar style="light" backgroundColor="#09090B" />
@@ -69,28 +87,34 @@ export default function HomeScreen() {
           {/* Quick Actions */}
           <View className="mb-8">
             <Text className="text-white text-lg font-semibold mb-4">Quick Actions</Text>
-            <View className="flex-row justify-between">
-              <TouchableOpacity className="items-center">
+            <View className="flex-row justify-around">
+              <TouchableOpacity className="items-center"
+               onPress={handleSend}
+               >
                 <QuickActionIcon color="#DC2626">
                   <Send color="#DC2626" size={24} />
                 </QuickActionIcon>
                 <Text className="text-white text-sm mt-2">Send</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity className="items-center">
+              <TouchableOpacity className="items-center"
+                             onPress={handleRecieve}
+>
                 <QuickActionIcon color="#059669">
                   <ArrowDownToLine color="#059669" size={24} />
                 </QuickActionIcon>
                 <Text className="text-white text-sm mt-2">Receive</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity className="items-center">
+              {/* <TouchableOpacity className="items-center"
+                                           onPress={handleScan}
+>
                 <QuickActionIcon color="#7C3AED">
                   <QrCode color="#7C3AED" size={24} />
                 </QuickActionIcon>
                 <Text className="text-white text-sm mt-2">Scan</Text>
               </TouchableOpacity>
-              
+               */}
               <TouchableOpacity className="items-center">
                 <QuickActionIcon color="#F59E0B">
                   <MoreHorizontal color="#F59E0B" size={24} />
