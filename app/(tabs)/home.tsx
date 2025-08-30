@@ -49,9 +49,9 @@ export default function HomeScreen() {
       router.push('/(trans)/recieve');    
     };
   
-    const handleScan = () => {
-      router.push('/(trans)/scanner');    
-    };
+    // const handleScan = () => {
+    //   router.push('/(trans)/scanner');    
+    // };
   
 
   return (
